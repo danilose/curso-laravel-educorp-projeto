@@ -16,6 +16,8 @@ class CreatePropostasTable extends Migration
         Schema::create('propostas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('titulo');
+            $table->bigInteger('acao_id')->unsigned();
+            $table->foreign('acao_id')->references('id')->on('acoes');
             $table->bigInteger('edital_id')->unsigned();
             $table->foreign('edital_id')->references('id')->on('editais');
             $table->integer('status')->comment('1 = Enviado/Aguardando avaliação; 2 = Aprovado; 3 = Reprovado');
