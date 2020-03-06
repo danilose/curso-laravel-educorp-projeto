@@ -15,6 +15,8 @@ class AcaoController extends Controller
     public function index()
     {
         //
+        $acoes = Acao::all();
+        return view('acoes.index', compact('acoes'));
     }
 
     /**
@@ -25,6 +27,7 @@ class AcaoController extends Controller
     public function create()
     {
         //
+        return view('acoes.create');
     }
 
     /**
@@ -36,6 +39,12 @@ class AcaoController extends Controller
     public function store(Request $request)
     {
         //
+        $acao = new Acao();
+        $acao->nome = $request['nome'];
+        $acao->qtdAlunos = $request['qtdAlunos'];
+        $acao->save();
+        
+        return redirect('acoes');
     }
 
     /**
