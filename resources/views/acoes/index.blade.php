@@ -1,32 +1,45 @@
-<div class="row">
-    <div class="col-12">
-        <h1>Ações de Extensão</h1>
-        <p><a href="acoes/create">Adicionar nova ação</a></p>
-    </div>
-</div>
+@extends('adminlte::page')
 
-<h3>Lista de ações - {{count($acoes)}}</h3>
+@section('title', 'Ações de Extensão')
 
-<table>
+@section('content_header')
+    <h1>Ações de Extensão</h1>
+@stop
 
-    <tr>
-        <td>Código</td>
-        <td>Nome</td>
-        <td>Quantidade alunos</td>
-    </tr>
-    
-    @forelse($acoes as $acao)
-    
+@section('content')
+
+    <h3>Lista de Ações de Extensão - Qtde: {{count($acoes)}}</h3>
+
+    <table>
+
         <tr>
-            
-            <td> {{ $acoa->id }} </td>
-            <td><a href="/acoes/{{ $acoa->id }}"> {{ $acoa->nome }} </a></td>
-            <td> {{ $acoa->qtdAlunos }} </td>
-            
+            <td>Código</td>
+            <td>Nome</td>
+            <td>Quantidade alunos</td>
         </tr>
-    
-    @empty
-        Não há ações
-    @endforelse
+        
+        @forelse($acoes as $acao)
+        
+            <tr>
+                
+                <td> {{ $acoa->id }} </td>
+                <td><a href="/acoes/{{ $acoa->id }}"> {{ $acoa->nome }} </a></td>
+                <td> {{ $acoa->qtdAlunos }} </td>
+                
+            </tr>
+        
+        @empty
+            Não há ações
+        @endforelse
 
-</table>
+    </table>
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi!'); </script>
+@stop
+
