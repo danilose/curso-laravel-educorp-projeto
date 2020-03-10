@@ -1,23 +1,41 @@
-<div class="row">
-    <h1>Adicionar sala</h1>
-</div>
+@extends('adminlte::page')
 
-<hr>
+@section('title', 'Criar Edital')
 
-<div class="row">
-    <form action="/salas" method="post">
-        @csrf
+@section('content_header')
+    <h1>Criar Edital</h1>
+@stop
 
-        <p>
-            <label for="nome">Nome:</label>
-            <input type="text" name="nome">
-        </p>
+@section('content')
+    <div class="row">
+        <form action="/editais" method="post">
+            @csrf
 
-        <p>
-            <label for="qtdAlunos">Quantidade alunos:</label>
-            <input type="text" name="qtdAlunos">
-        </p>
-        
-        <button type="submit">Criar sala</button>
-    </form>
-</div>
+            <div class="form-group">
+                <label for="titulo">Título:</label>
+                <input class="form-control" type="text" name="titulo">
+            </div>
+
+            <div class="form-group">
+                <label for="tipo">Tipo:</label>
+                <input class="form-control" type="text" name="tipo">
+            </div>
+
+            <div class="form-group">
+                <label for="user_id">Usuário:</label>
+                <input class="form-control" type="text" name="user_id">
+            </div>
+            
+            <button type="submit" class="btn btn-success">Criar Edital</button>
+        </form>
+    </div>
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi!'); </script>
+@stop
+

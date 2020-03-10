@@ -1,32 +1,48 @@
-<div class="row">
-    <div class="col-12">
-        <h1>Salas</h1>
-        <p><a href="salas/create">Adicionar nova sala</a></p>
-    </div>
-</div>
+@extends('adminlte::page')
 
-<h3>Lista de salas - {{count($salas)}}</h3>
+@section('title', 'Usuários')
 
-<table>
+@section('content_header')
+    <h1>Usuários</h1>
+@stop
 
-    <tr>
-        <td>Código</td>
-        <td>Nome</td>
-        <td>Quantidade alunos</td>
-    </tr>
-    
-    @forelse($salas as $s)
-    
+@section('content')
+
+    <h3>Lista de Usuários - Qtde: {{count($users)}}</h3>
+
+    <table class="table">
+
         <tr>
-            
-            <td> {{ $s->id }} </td>
-            <td><a href="/salas/{{ $s->id }}"> {{ $s->nome }} </a></td>
-            <td> {{ $s->qtdAlunos }} </td>
-            
+            <td>Código</td>
+            <td>Nome</td>
+            <td>Quantidade alunos</td>
         </tr>
-    
-    @empty
-        Não há salas
-    @endforelse
+        
+        @forelse($users as $user)
+        
+            <tr>
+                
+                <td> {{ $user->id }} </td>
+                <td><a href="/users/{{ $user->id }}"> {{ $user->nome }} </a></td>
+                <td> {{ $user->qtdAlunos }} </td>
+                
+            </tr>
+        
+        @empty
+            Não há Usuários cadastrados
+        @endforelse
 
-</table>
+    </table>
+
+    {{ $users->links() }}
+
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi!'); </script>
+@stop
+

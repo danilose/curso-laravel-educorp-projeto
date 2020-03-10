@@ -10,7 +10,7 @@
 
     <h3>Lista de Ações de Extensão - Qtde: {{count($acoes)}}</h3>
 
-    <table>
+    <table class="table">
 
         <tr>
             <td>Código</td>
@@ -22,17 +22,20 @@
         
             <tr>
                 
-                <td> {{ $acoa->id }} </td>
-                <td><a href="/acoes/{{ $acoa->id }}"> {{ $acoa->nome }} </a></td>
-                <td> {{ $acoa->qtdAlunos }} </td>
+                <td> {{ $acao->id }} </td>
+                <td><a href="/acoes/{{ $acao->id }}"> {{ $acao->nome }} </a></td>
+                <td> {{ $acao->qtdAlunos }} </td>
                 
             </tr>
         
         @empty
-            Não há ações
+            Não há Ações de Extensão cadastradas
         @endforelse
 
     </table>
+
+    {{ $acoes->links() }}
+
 @stop
 
 @section('css')

@@ -11,22 +11,22 @@
         <form action="/acoes" method="post">
             @csrf
 
-            <p>
+            <div class="form-group">
                 <label for="titulo">Título:</label>
-                <input type="text" name="titulo">
-            </p>
+                <input class="form-control" type="text" name="titulo">
+            </div>
 
-            <p>
+            <div class="form-group">
                 <label for="tipo">Tipo:</label>
-                <input type="text" name="tipo">
-            </p>
+                <input class="form-control" type="text" name="tipo">
+            </div>
 
-            <p>
+            <div class="form-group">
                 <label for="user_id">Usuário:</label>
-                <input type="text" name="user_id">
-            </p>
+                <input class="form-control" type="text" name="user_id">
+            </div>
             
-            <button type="submit">Criar Ação de Extensão</button>
+            <button type="submit" class="btn btn-success">Criar Ação de Extensão</button>
         </form>
     </div>
 @stop

@@ -1,32 +1,48 @@
-<div class="row">
-    <div class="col-12">
-        <h1>Salas</h1>
-        <p><a href="salas/create">Adicionar nova sala</a></p>
-    </div>
-</div>
+@extends('adminlte::page')
 
-<h3>Lista de salas - {{count($salas)}}</h3>
+@section('title', 'Editais')
 
-<table>
+@section('content_header')
+    <h1>Editais</h1>
+@stop
 
-    <tr>
-        <td>Código</td>
-        <td>Nome</td>
-        <td>Quantidade alunos</td>
-    </tr>
-    
-    @forelse($salas as $s)
-    
+@section('content')
+
+    <h3>Lista de Editais - Qtde: {{count($editais)}}</h3>
+
+    <table class="table">
+
         <tr>
-            
-            <td> {{ $s->id }} </td>
-            <td><a href="/salas/{{ $s->id }}"> {{ $s->nome }} </a></td>
-            <td> {{ $s->qtdAlunos }} </td>
-            
+            <td>Código</td>
+            <td>Nome</td>
+            <td>Quantidade alunos</td>
         </tr>
-    
-    @empty
-        Não há salas
-    @endforelse
+        
+        @forelse($editais as $edital)
+        
+            <tr>
+                
+                <td> {{ $edital->id }} </td>
+                <td><a href="/editais/{{ $edital->id }}"> {{ $edital->nome }} </a></td>
+                <td> {{ $edital->qtdAlunos }} </td>
+                
+            </tr>
+        
+        @empty
+            Não há Editais cadastrados
+        @endforelse
 
-</table>
+    </table>
+
+    {{ $editais->links() }}
+
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi!'); </script>
+@stop
+
